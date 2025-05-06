@@ -30,7 +30,12 @@ const countries = [
 export default function HomePage() {
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
-  function handleBuyClick(country: string) {
+  async function handleBuyClick(country: string) {
+    // const res = await fetch(
+    //   `/api/info?country=${encodeURIComponent(country)}`
+    // );
+    // const data = res.json();
+    // console.log("data is", data);
     router.push(`/buy?country=${country}`);
   }
   return (
@@ -70,7 +75,7 @@ export default function HomePage() {
                 </SelectItem>
                 <SelectItem value="9513574652">
                   <div className="flex items-center justify-between w-full">
-                    <span>123456789</span>
+                    <span>9513574652</span>
                     <Phone className="w-4 h-4 text-green-500 ml-2" />
                   </div>
                 </SelectItem>

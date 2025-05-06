@@ -15,21 +15,28 @@ import { useRouter } from "next/navigation";
 const selectedCountry = [
   {
     countryNumber: "11111111",
+    countryCode: "USA",
   },
   {
     countryNumber: "22222222",
+    countryCode: "NP",
   },
   {
     countryNumber: "333333333",
+    countryCode: "IN",
   },
   {
     countryNumber: "4444444444",
+    countryCode: "PAK",
   },
 ];
 
 export default function BuyPage() {
   const router = useRouter();
-  function showMessage(number: string) {
+  async function showMessage(number: string) {
+    //   const res = await fetch(`/api?number=${encodeURIComponent(number)}`);
+    //   const data = res.json()
+    //   console.log("data is",data)
     router.push(`/messages?number=${number}`);
   }
   return (
@@ -45,6 +52,7 @@ export default function BuyPage() {
           <TableHeader>
             <TableRow className="bg-gray-200 text-gray-700">
               <TableHead>Country Number</TableHead>
+
               <TableHead className="text-right">Action</TableHead>
             </TableRow>
           </TableHeader>
@@ -57,6 +65,9 @@ export default function BuyPage() {
                 <TableCell className="font-medium">
                   {select.countryNumber}
                 </TableCell>
+                {/* <TableCell className="font-medium">
+                  {select.countryCode}
+                </TableCell> */}
                 <TableCell className="text-right">
                   <Button
                     className="px-4 py-2 text-white  rounded-md"
